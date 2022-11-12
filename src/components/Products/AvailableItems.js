@@ -1,5 +1,7 @@
 import Products from './Products';
+import classes from './AvailableItems.module.css';
 
+const AvailableProducts = (props) => {
 const productsArr = [
     {
     id   : 'P1',
@@ -27,18 +29,15 @@ const productsArr = [
     }
     ];
 
-    const AvailableProducts = () => {
-        const Product = productsArr.map((Product) => (
-            <Products
-            key={Product.id}
-            title={Product.title}
-            price={Product.price}
-            imageUrl={Product.imageUrl} />
-        ))
+    const Product = productsArr.map((Product) => (
+            <ul>
+                <Products data={Product}/>
+            </ul>
+        ));
         return (
-            <section>
-                <ul>{Product}</ul>
-            </section>
+            <div className={classes.container}>
+                {Product}
+            </div>
         )
     };
 export default AvailableProducts;

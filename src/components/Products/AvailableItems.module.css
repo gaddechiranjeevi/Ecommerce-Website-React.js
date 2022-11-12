@@ -1,0 +1,25 @@
+.wrap {
+    display: block;
+    justify-content: center;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 0rem auto;
+    padding: 0px 1rem;
+    justify-content: center;
+  }
+
+  .container ul {
+    list-style: none;
+  }
+  .container-items {
+    display: block;
+    align-items: center;
+  }
+
+  .container-items:hover{
+    transform: scale(1.5);
+    filter: brightness(130%);
+  }

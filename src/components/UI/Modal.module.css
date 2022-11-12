@@ -1,0 +1,13 @@
+.modal {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    height: 90%;
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    margin: 1rem 0;
+    border: 1px solid rgb(177, 103, 103);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 30;
+    animation: slide-down 300ms ease-out forwards;
+  }

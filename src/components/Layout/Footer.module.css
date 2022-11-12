@@ -1,0 +1,38 @@
+.footer{
+  display:flex;
+  margin-top:40px;
+  padding:20px;
+  background: #56CCF2;
+}
+.footer h1{
+  text-align: center;
+  color:white;
+  width:50%;
+  font-size:50px;
+  font-weight:bold;
+  font-family:"Metal Mania";
+  margin:0 auto;
+}
+.footer icons{
+  width:50%;
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+}
+.footer ul{
+  list-style-type: none;
+  display:flex;
+  position: absolute;
+  right: 130px;
+  justify-content: space-around;
+}
+.footer li{
+  padding:10px;
+  margin:0px 20px;
+}
+.footer li:hover{
+  background:rgb(17, 206, 206);
+}
+.footer img{
+  width:30px;
+}
