@@ -1,0 +1,55 @@
+.wrapper {
+    display: block;
+  }
+
+  .wrapper h1 {
+    font-family: "Metal Mania";
+    text-align: center;
+    font-size: 30px;
+  }
+
+.control {
+    display: block;
+    width: 30%;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 0 1px 1px rgb(211, 210, 210);
+    border-radius: 8px;
+    padding: 5rem 1rem;
+  }
+
+  .control label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  .control input,
+  .control textarea {
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.50rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+  }
+
+  .control input:focus,
+  .control textarea:focus {
+    outline: none;
+    border-color: #230052;
+  }
+
+  .control button {
+  cursor: pointer;
+  background: #56ccf2;
+  color: white;
+  margin: 0.25rem;
+  font-weight: bold;
+  padding: 0.50rem 2rem;
+  border: none;
+  font-size: 17px;
+  border-radius: 20px;
+  }

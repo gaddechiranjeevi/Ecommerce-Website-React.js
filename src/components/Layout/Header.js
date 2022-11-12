@@ -10,6 +10,7 @@ const Header = props => {
         <NavLink activeClassName={classes.active} to="/home">HOME</NavLink>
         <NavLink activeClassName={classes.active} to="/store">STORE</NavLink>
         <NavLink activeClassName={classes.active} to="/about">ABOUT</NavLink>
+        <NavLink activeClassName={classes.active} to="/contactUs">Contact-Us</NavLink>
         <CartButton onClick={props.onShow}/>
       </header>
       <div className={classes.container}>
