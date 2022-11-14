@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
-import CartContext from "../store/CartContext";
+import { Link } from "react-router-dom";
+import CartContext from "../store/cart-context";
 import Button from "../UI/Button";
 import classes from "./Products.module.css";
 
@@ -15,6 +16,10 @@ const Products = (props) => {
 
   return (
     <li key={props.data.id} id={props.id}>
+      <Link style={{ textDecoration:'none'}}
+      to={{pathname:'store/productDetails',
+           state:{data: props.data}
+          }}>
       <div className={classes.container}>
         <div>
           <h3>{props.data.title}</h3>
@@ -25,6 +30,7 @@ const Products = (props) => {
           <Button onClick={addItemHandler}>Add TO CART</Button>
         </div>
       </div>
+      </Link>
     </li>
   );
 };

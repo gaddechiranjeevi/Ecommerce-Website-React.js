@@ -7,9 +7,10 @@ const Header = props => {
   return (
     <Fragment>
       <header className={classes.header}>
-        <NavLink activeClassName={classes.active} to="/home">HOME</NavLink>
+        <NavLink exact activeClassName={classes.active} to="/home">HOME</NavLink>
         <NavLink activeClassName={classes.active} to="/store">STORE</NavLink>
         <NavLink activeClassName={classes.active} to="/about">ABOUT</NavLink>
+        <NavLink activeClassName={classes.active} to="/login">LOGIN</NavLink>
         <NavLink activeClassName={classes.active} to="/contactUs">Contact-Us</NavLink>
         <CartButton onClick={props.onShow}/>
       </header>

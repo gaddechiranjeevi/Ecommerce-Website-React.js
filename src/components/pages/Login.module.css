@@ -1,0 +1,39 @@
+.wrapper {
+    display: block;
+  }
+
+  .login-form {
+    display: block;
+    margin: 5rem auto;
+    width: 30%;
+    box-shadow: 0 0 1px 1px rgb(211, 210, 210);
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px 1rem;
+  }
+
+  .login-form input {
+    width: 100%;
+    border-radius: 12px;
+    padding: 0.5rem;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  .login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  .login-form input:focus {
+    outline: none;
+    border-color: #230052;
+  }
+  h1 {
+    font-family: "Metal Mania";
+    text-align: center;
+    font-size: 30px;
+  }

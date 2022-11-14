@@ -56,7 +56,9 @@ const Home = () => {
     return(
         <section className={classes.home}>
             <h2>Tours</h2>
-            {trackList}
+            <div className={classes.wrapper}>
+              {trackList}
+            </div>
         </section>
     );
 };

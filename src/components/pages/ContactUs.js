@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Button from '../UI/Button';
 import classes from './ContactUs.module.css';
 
 const ContactUs = (props) => {
@@ -28,7 +29,7 @@ const ContactUs = (props) => {
                     <input type='email' id='email' ref={emailIdRef}></input>
                     <label htmlFor='phone-number'>Phone Number</label>
                     <input type='number' id='number' ref={phoneNumberRef}></input>
-                    <button type='submit'>SUBMIT</button>
+                    <Button type='submit'>SUBMIT</Button>
                 </form>
             </div>
         </section>

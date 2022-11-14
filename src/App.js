@@ -1,18 +1,22 @@
 import classes from './App.module.css';
-import React, { useState} from 'react';
+import { useContext, useState} from 'react';
 import AvailableProducts from './components/Products/AvailableItems';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Layout/Footer';
 import CartProvider from './components/store/CartProvider';
 import Header from './components/Layout/Header';
 import About from './components/pages/About';
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import ContactUs from './components/pages/ContactUs';
+import ProductDetail from './components/Products/ProductDetail';
+import Login from './components/pages/Login';
+import AuthContext from './components/store/auth-context';
 
 function App(){
 
   const [cartIsShown, setCartIsShown] = useState(false);
+  const authCntx = useContext(AuthContext);
   
   const showCartHandler = () => {
         setCartIsShown(true)
@@ -49,22 +53,31 @@ function App(){
         {cartIsShown && <Cart onClose = {hideCartHandler}/>}
         <Header onShow={showCartHandler} />
         <main>
-          <AvailableProducts />
-          <Route path='./home'>
-            <Home />
-          </Route>
-          <Route path="/store">
-            <AvailableProducts />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contactUs">
-            <ContactUs onAddQuery={userInfoHandler}/>
-          </Route>
-        </main>
-        <div classes ={classes.footer}>
-          <Footer />
+      <switch>
+        <Route path="/home" exact>
+          <Home />
+        </Route>
+        <Route path="/store" exact>
+          {authCntx.isLoggedIn && <AvailableProducts />}
+          {!authCntx.isLoggedIn && <Redirect to='/login' />}
+        </Route>
+        <Route path="/store/:productDetail">
+          {authCntx.isLoggedIn && <ProductDetail />}
+          {!authCntx.isLoggedIn && <Redirect to='/login'/>}
+        </Route>
+        <Route path="/about">
+         <About />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/contactUs">
+        <ContactUs onAddQuery={userInfoHandler} />
+        </Route>
+      </switch>
+      </main>
+      <div className={classes.footer}>
+        <Footer />
         </div>
      </CartProvider>
   );

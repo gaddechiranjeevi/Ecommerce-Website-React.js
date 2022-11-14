@@ -1,6 +1,6 @@
 import { Fragment, useContext } from 'react';
 import classes from './CartButton.module.css';
-import CartContext from '../store/CartContext';
+import CartContext from '../store/cart-context';
 
 const CartButton =(props) => {
 
