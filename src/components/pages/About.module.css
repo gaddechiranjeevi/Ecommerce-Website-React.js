@@ -10,22 +10,22 @@
   }
 
   .wrapper {
-    padding: 0 20%;
+    padding: 0 17%;
     justify-content: center;
   }
 
   .wrapper img {
     float: left;
-    margin: 5px 10px 0 0;
+    margin: 5px 20px 0 0;
     width: 300px;
     height: 300px;
     border-radius: 50%;
   }
 
   .wrapper p {
-    font-size: 20px;
+    font-size: 19px;
     font-family: "Gentium Book Basic", serif;
     margin: 20px;
-    color: #777;
+    color: rgb(104, 98, 98);
     text-align: justify;
   }

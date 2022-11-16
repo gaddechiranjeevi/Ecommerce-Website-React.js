@@ -7,8 +7,9 @@
     display: grid;
     grid-template-columns: auto auto;
     margin: 0rem auto;
-    padding: 0px 1rem;
+    padding: 0 1rem;
     justify-content: center;
+    overflow: hidden;
   }
 
   .container ul {

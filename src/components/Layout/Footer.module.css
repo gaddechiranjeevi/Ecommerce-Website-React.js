@@ -1,37 +1,42 @@
 .footer{
   display:flex;
-  margin-top:40px;
-  padding:20px;
-  background: #56CCF2;
+  width: 100%;
+  text-align: start;
+  padding-bottom: 20px;
+  padding-top:10px;
+  justify-content: space-around;
+  background-color: #56CCF2;
 }
 .footer h1{
-  text-align: left;
+
   color:white;
-  width: 50%;
-  font-size:50px;
+  width: 80%;
+  font-size:60px;
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 80px;
+  margin-left: -320px;
   font-weight:bold;
-  font-family:"Metal Mania";
-  height: 50px;
+  font-family:'Times New Roman', Times, serif;
+  overflow: hidden;
 }
 .footer icons{
   width:50%;
+  padding-top: 85%;
   display:flex;
   align-items:center;
   justify-content: space-around;
 }
 .footer ul{
-  list-style-type: none;
+  list-style: none;
   display:flex;
   position: absolute;
-  right: 130px;
+  right: 100px;
   justify-content: space-around;
+  overflow: hidden;
 }
 .footer li{
-  padding:10px;
-  margin:0px 20px;
+  padding: 8px;
+  margin:0px 15px;
 }
 .footer li:hover{
   background:rgb(17, 206, 206);

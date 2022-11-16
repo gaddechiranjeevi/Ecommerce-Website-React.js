@@ -1,7 +1,12 @@
 import Products from './Products';
 import classes from './AvailableItems.module.css';
+import { Fragment, useContext } from 'react';
+import CartContext from '../store/cart-context';
+import axios from 'axios';
 
 const AvailableProducts = (props) => {
+    const cartCntx = useContext(CartContext);
+
 const productsArr = [
     {
     id   : 'P1',
@@ -29,15 +34,34 @@ const productsArr = [
     }
     ];
 
+    const newEmailId = localStorage.getItem('email')
+      const getCart = async () => {
+        try {
+            const res = await axios.get(`https://crudcrud.com/api/7f239d2620ed4a0cbe7127d7b447e938/cart${newEmailId}`);
+                const cartData = res.data;
+                const cartLength = res.data.length;
+                console.log(res.data);
+                console.log(cartLength);
+
+                cartCntx.cartFetch(cartLength, cartData);
+        }catch (err) {
+            console.log(err);
+        }
+      };
+
+      getCart();
+
     const Product = productsArr.map((Product) => (
-            <ul>
+            <ul key={Product.id}>
                 <Products data={Product}/>
             </ul>
         ));
         return (
-            <div className={classes.container}>
+            <Fragment>
+                <div className={classes.container}>
                 {Product}
             </div>
+            </Fragment>
         )
     };
 export default AvailableProducts;

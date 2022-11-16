@@ -9,28 +9,34 @@
     margin: 0 auto;
     padding: 10px;
     font-weight: 200;
-    border-bottom: solid 1px white;
+    border-bottom: 2px solid white;
   }
   .header a {
     color: white;
-    margin: 0 0.90rem;
+    margin: 0 1rem;
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 18px;
-    padding-right: 50px;
+    font-size: 15px;
     text-decoration: none;
   }
-
+.header a:hover,
+.header a.active {
+  color: white;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid white;
+}
   .container {
-    height: 15rem;
+    height: 17rem;
+    margin-top: -50px;
     background-color: rgba(63, 62, 62, 0.76);
     text-align: center;
     overflow: hidden;
     padding-top: 25px;
-    z-index: 1;
+    z-index: 0;
   }
   .container h1 {
     color: white;
-    padding: 40px;
-    font-size: 100px;
-    font-family:"Metal Mania";
+    padding: 30px;
+    font-size: 120px;
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif;
   }

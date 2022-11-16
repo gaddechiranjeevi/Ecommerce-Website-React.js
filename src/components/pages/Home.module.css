@@ -11,6 +11,11 @@
   text-align: center;
   padding: 20px 1rem;
 }
+.home h1{
+  font-family: "Metal Mania";
+  text-align: center;
+  font-size: 30px;
+}
 
   .tour-item {
     display: flex;

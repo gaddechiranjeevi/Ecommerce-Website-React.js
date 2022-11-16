@@ -16,7 +16,7 @@
     width: 100%;
     border-radius: 12px;
     padding: 0.5rem;
-    font-size: 18px;
+    font-size: 15px;
     border: 1px solid #ccc;
     margin-bottom: 1rem;
   }
@@ -30,7 +30,7 @@
 
   .login-form input:focus {
     outline: none;
-    border-color: #230052;
+    border-color: #31036d;
   }
   h1 {
     font-family: "Metal Mania";

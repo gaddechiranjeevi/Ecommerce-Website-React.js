@@ -1,56 +1,50 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { Fragment, useContext, useRef } from "react";
 import classes from './Login.module.css';
 import Button from "../UI/Button";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../store/auth-context";
+import axios from "axios";
 
 const Login = () => {
-    const [isLoading, setIsLoading] = useState(false);
+
     const emailInputRef = useRef('');
     const passwordInputRef = useRef('');
     const history = useHistory();
     const authCntx = useContext(AuthContext);
 
-    const submitHandler = (event) => {
+    const submitHandler = async(event) => {
         event.preventDefault();
+
         const emailEntered = emailInputRef.current.value;
         const passwordEntered = passwordInputRef.current.value;
-        setIsLoading(true);
-        fetch('https://identitytoolkit.googleapi.com/v1/accounts:signInWithPassword?key=ba65703a64004c4db858c49a0304e6c9',
-    {
-        method: 'POST',
-        body: JSON.stringify({
-            email: emailEntered,
-            password: passwordEntered,
-            returnSecureToken: true
-        }),
-        headers:
-        {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then((res) => {
-        setIsLoading(false);
-        if(res.ok){
-            return res.json();
-        }else{
-            return res.json().then((data) => {
-                throw new Error(data.error.message);
-            })
-        }
-    })
-    .then((data) => {
-        authCntx.login(data.idToken);
-        history.replace('/store');
-    })
-    .catch((err) => {
-        alert(err);
-    })       
-};
+        try {
+            const response = await axios.post(
+                'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBDWh-HNvbkUvfvAzeqUNVk-zChPEvOXPE',
+                {
+                    email: emailEntered,
+                    password: passwordEntered,
+                    returnSecureToken: true
+                }
+            );
+
+            const token = response.data.idToken;
+            const email = response.data.email;
+
+            authCntx.login(token, email);
+            history.replace('/store');   
+            console.log("Login Success")
+            localStorage.setItem('email', response.data.email.replace('@','').replace('.', ''))
+
+            } catch (err) {
+                console.log(err);
+                alert(err);
+            }
+    };
 
 return(
+    <Fragment>
     <section className={classes.wrapper}>
-        <h1>LOGIN</h1>
+        <h1>User Login</h1>
             <form onSubmit={submitHandler} className={classes['login-form']}>
                 <label htmlFor="email-id">Email ID</label>
                 <input type="email" id="email" 
@@ -64,10 +58,10 @@ return(
                 ref={passwordInputRef} 
                 placeholder="enter password..." 
                 />
-                {!isLoading && <Button>Login</Button>}
-                {isLoading && <p>Sending request...</p>}
+                <Button>Login</Button>
             </form>
     </section>
+    </Fragment>
     );
 };
 

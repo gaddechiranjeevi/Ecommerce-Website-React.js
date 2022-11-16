@@ -1,22 +1,37 @@
 import classes from './App.module.css';
-import { useContext, useState} from 'react';
-import AvailableProducts from './components/Products/AvailableItems';
+import React, {Fragment, Suspense, useContext, useState} from 'react';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Layout/Footer';
-import CartProvider from './components/store/CartProvider';
 import Header from './components/Layout/Header';
-import About from './components/pages/About';
 import { Redirect, Route } from 'react-router-dom';
-import Home from './components/pages/Home';
-import ContactUs from './components/pages/ContactUs';
-import ProductDetail from './components/Products/ProductDetail';
-import Login from './components/pages/Login';
+import axios from 'axios';
 import AuthContext from './components/store/auth-context';
 
-function App(){
+  const Home = React.lazy(() => import('./components/pages/Home'));
+  const Login = React.lazy(() => import('./components/pages/Login'));
+  const About = React.lazy(() => import('./components/pages/About'));
+  const ContactUs = React.lazy(() => import('./components/pages/ContactUs'));
+  const ProductDetail = React.lazy(() => import('./components/Products/ProductDetail'));
+  const AvailableProducts = React.lazy(() => import('./components/Products/AvailableItems'));
 
+function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
+  const [cartLength, setCartLength] = useState(0);
+
   const authCntx = useContext(AuthContext);
+
+  const newEmailId = localStorage.getItem('email')
+  const getCart = async () => {
+    try{
+      const response = await axios.get(`https://crudcrud.com/api/7f239d2620ed4a0cbe7127d7b447e938/cart${newEmailId}`);
+      console.log(response);
+      console.log(response.data.length);
+      setCartLength(response.data.length);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  getCart();
   
   const showCartHandler = () => {
         setCartIsShown(true)
@@ -26,36 +41,18 @@ function App(){
     setCartIsShown(false)
   }
 
-  const userInfoHandler = async(info) => {
-    try{
-    const res = await fetch('https://e-commerce-af028-default-rtdb.firebaseio.com/userInfo.json',
-    {
-        method: 'POST',
-        body: JSON.stringify(info),
-        headers: {'Content-type': 'application/json'}
-    })
-
-    if(!res.ok)
-    {
-      throw new Error('Something went wrong!')
-    }
-
-    const data = await res.json();
-    console.log(data);
-  }
-  catch(err)
-  {
-    console.log(err);
-  }
-}
   return (
-     <CartProvider>
+     <Fragment>
         {cartIsShown && <Cart onClose = {hideCartHandler}/>}
-        <Header onShow={showCartHandler} />
+        <Header onShow={showCartHandler} data={cartLength} />
         <main>
+          <Suspense fallback={<p>Loading....</p>}>
       <switch>
-        <Route path="/home" exact>
+        <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/home" exact>
+        <Home />
         </Route>
         <Route path="/store" exact>
           {authCntx.isLoggedIn && <AvailableProducts />}
@@ -72,14 +69,15 @@ function App(){
           <Login />
         </Route>
         <Route path="/contactUs">
-        <ContactUs onAddQuery={userInfoHandler} />
+        <ContactUs />
         </Route>
       </switch>
+      </Suspense>
       </main>
       <div className={classes.footer}>
         <Footer />
         </div>
-     </CartProvider>
+     </Fragment>
   );
 };
 

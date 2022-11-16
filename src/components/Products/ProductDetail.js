@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useLocation } from "react-router-dom";
 import classes from './ProductDetail.module.css';
-import { AiFillStar } from 'react-icons/ai'
+import { AiFillStar } from 'react-icons/ai';
 
 const ProductDetail = () => {
     const location = useLocation();
@@ -13,8 +13,6 @@ const ProductDetail = () => {
         {url: '/images/img3.jpg'},
         {url: '/images/img4.jpg'},
         {url: '/images/img5.jpg'},
-        {url: '/images/img6.jpg'},
-        {url: '/images/img7.jpg'}
     ];
 
     return (
@@ -30,13 +28,13 @@ const ProductDetail = () => {
                     ))}
                 </div>
                 <img
-                    className={classes['product-img']}
                     src={data.imageUrl}
                     alt='product-imgs'
+                    className={classes['product-img']}
                 />
                 <div className={classes['product-details']}>
                     <h1>{data.title}</h1>
-                    <p>${data.price}</p>
+                    <p style={{ color: 'black'}}>${data.price}</p>
                     <div className={classes['product-rating']}>
                         4.3 <AiFillStar />
                     </div>
@@ -56,10 +54,6 @@ const ProductDetail = () => {
                         pulvinar aliquam mi tristique
                     </p>
                     <h3>Reviews</h3>
-                        <li>Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet erat</li>
-                        <li>Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet erat</li>
-                        <li>Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet erat</li>
-                        <li>Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet erat</li>
                         <li>Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet erat</li>
                         <li>Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet erat</li>
                         <li>Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet erat</li>

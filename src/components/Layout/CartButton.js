@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import classes from './CartButton.module.css';
 import CartContext from '../store/cart-context';
 
@@ -6,15 +6,16 @@ const CartButton =(props) => {
 
   const cartCntx = useContext(CartContext);
 
-  let quantity = 0;
-  cartCntx.items.forEach((item) => {
-    quantity = quantity + Number(item.quantity)
-  })
+  useEffect(() => {
+    console.log(cartCntx.cartLength);
+    console.log(cartCntx.items);
+
+  }, [cartCntx.cartLength, cartCntx.items]);
 
     return(
       <Fragment>
       <button className={classes.button} onClick={props.onClick}>
-        Cart <span className={classes.span}>{quantity}</span>
+        Cart <span className={classes.span}>{props.data}</span>
       </button>
     </Fragment>
     )

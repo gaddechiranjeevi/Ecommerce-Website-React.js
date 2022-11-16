@@ -55,7 +55,7 @@ const Home = () => {
 
     return(
         <section className={classes.home}>
-            <h2>Tours</h2>
+            <h1>Tours</h1>
             <div className={classes.wrapper}>
               {trackList}
             </div>

@@ -6,31 +6,33 @@ import classes from "./Products.module.css";
 
 const Products = (props) => {
 
-  const cartCtx = useContext(CartContext)
+  const cartCtx = useContext(CartContext);
 
-  const price = `$${props.data.price}`;
-
-  const addItemHandler = (item) => {
+  const addItemHandler = () => {
     cartCtx.addItem({...props.data, quantity: 1})
-  }
+  };
 
   return (
-    <li key={props.data.id} id={props.id}>
-      <Link style={{ textDecoration:'none'}}
-      to={{pathname:'store/productDetails',
-           state:{data: props.data}
-          }}>
+      <li key={props.id} id={props.id}>
       <div className={classes.container}>
         <div>
-          <h3>{props.data.title}</h3>
-          <img src={props.data.imageUrl} alt="items images " />
-        </div>
+        <Link
+           style={{ textDecoration: 'none'}}
+           to={{
+            pathname: 'store/productDetails',
+            state:{data: props.data}
+           }}>
+            <h3>{props.data.title}</h3>
+            <img src={props.data.imageUrl} alt="items-images "/>
+            </Link>
+            </div>
         <div className={classes.wrapper}>
-          <span>{price}</span>
-          <Button onClick={addItemHandler}>Add TO CART</Button>
+          <span>$
+            <span>{props.data.price}</span>
+          </span>
+          <Button onClick={addItemHandler}>Add To Cart</Button>
         </div>
       </div>
-      </Link>
     </li>
   );
 };

@@ -1,14 +1,39 @@
 .container {
     width: 100%;
-    margin: 30px;
+    margin: 0px 5rem;
  }
 
  .wrapper {
     display: flex;
-    justify-content:space-evenly;
-    margin: 0 100px;
+    width: 65%;
+    justify-content:space-between;
+    padding: 12px 0px;
+    font-size: 17px;
  }
 
  .wrapper span {
     margin: 0;
+    justify-content: center;
+ }
+
+ .container div :hover {
+   object-fit: fill;
+   z-index: 10;
+   height: 50%;
+   width: 50%;
+   padding: 0px;
+   margin: 0px;
+   transition: ease-in 0.5s;
+   filter: brightness(100%);
+ }
+
+ .container h3{
+   display: flex;
+   width: 70%;
+   justify-content: space-around;
+   text-align: center;
+   font-size: 24px;
+   color: #333;
+   margin-bottom: 15px;
+   font-family: 'Times New Roman', Times, serif;
  }

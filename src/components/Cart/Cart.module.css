@@ -8,6 +8,7 @@
   }
   .ul {
     list-style: none;
+    cursor: pointer;
   }
   .close {
     position: absolute;
@@ -20,7 +21,7 @@
     cursor: pointer;
   }
   .total h2 {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Metal Mania';
     letter-spacing: 5px;
     font-size: 30px;
   }
@@ -28,7 +29,9 @@
   .wrapper {
     display: flex;
     justify-content: space-around;
-    margin: 0 10px;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 20px 30px;
   }
   
   .item {
@@ -69,4 +72,55 @@
   
   .cart-total span {
      padding: 0 10px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 0 0;
+    text-align: center;
+  }
+  
+  .container span {
+    padding: 0 1px;
+    margin: 5px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .cart-column {
+    display: flex;
+    width: 35%;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  .container img {
+    width: 50px;
+    border-radius: 8%;
+    margin: 10px;
+  }
+  
+  .quantity {
+    display: flex;
+    width: 25%;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .price {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .container button {
+    background-color: rgb(231, 76, 76);
+    padding: 8px 7px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 12px;
+    border-radius: 8%;
+    font-weight: bold;
   }
