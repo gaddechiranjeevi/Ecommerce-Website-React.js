@@ -19,7 +19,7 @@ const Login = () => {
         const passwordEntered = passwordInputRef.current.value;
         try {
             const response = await axios.post(
-                'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBDWh-HNvbkUvfvAzeqUNVk-zChPEvOXPE',
+                'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC-nAWDpd8WvukOh4OSaaA692IU8cVvXFo',
                 {
                     email: emailEntered,
                     password: passwordEntered,
